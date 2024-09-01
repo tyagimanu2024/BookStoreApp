@@ -10,10 +10,14 @@ const Banner = () => {
               <span className="text-pink-500">everyday!!!</span>
             </h1>
             <p className="text-xl">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio,
-              quidem voluptatum minima eius nisi rerum placeat repellat.
-              Voluptatum, amet nesciunt? Quaerat quia debitis voluptate.
-              Nesciunt doloribus itaque ducimus ratione provident.
+<h1 className="mb-12 text-6xl text-center hover:text-pink-500   font-bold  ">THE BOOKERY</h1>
+            We're absolutely thrilled to have you here! Whether you're a lifelong book lover or just beginning your literary journey, our store is a haven for all who cherish the magic of reading. Dive into our carefully curated collection, where every book is a new adventure waiting to be explored.
+
+At <h1>THE BOOKERY!</h1> <br /> <h1 className=" text-4xl mb-2 text-pink-500">WE</h1> believe that every book has the power to inspire, enlighten, and transform. We're passionate about helping you discover stories that resonate with you, whether you're seeking to expand your mind, escape into a different world, or simply find a cozy read for a quiet afternoon.
+
+So grab a cup of tea, settle into a comfy spot, and let your next great read find you. We're here to make your reading experience as wonderful as possible, and we're excited to share the joy of books with you.
+
+Happy reading!
             </p>
             <label className="input input-bordered flex items-center gap-2">
               <svg

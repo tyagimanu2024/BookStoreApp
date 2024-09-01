@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form"; // Don't forget to import useForm
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const Signup = () => {
   const {
@@ -8,9 +9,24 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data); // Log form data to the console
-    // Handle additional form submission logic here
+  const onSubmit = async (data) => {
+    const userInfo = {
+      fullName: data.fullName,  // Corrected to match the form input name
+      email: data.email,
+      password: data.password,
+    };
+
+    await axios.post("http://localhost:4001/user/signup", userInfo)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data) {
+          alert("Signup Successfully");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Error: " + err.response?.data?.message || err.message);
+      });
 
     // Close the modal after form submission
     const modal = document.getElementById("my_modal_3");
@@ -31,20 +47,18 @@ const Signup = () => {
           </button>
 
           <h3 className="font-bold text-lg text-center mb-4">Signup</h3>
-          {/* Name */}
+          {/* Full Name */}
           <div className="mt-4">
-            <span>Name</span>
+            <span>Full Name</span>
             <br />
             <input
-              {...register("name", { required: "Name is required" })}
+              {...register("fullName", { required: "Full Name is required" })} // Changed "name" to "fullName"
               type="text"
-              placeholder="Enter your name"
+              placeholder="Enter your full name"
               className="w-full px-3 border rounded-md outline-none mt-4"
             />
-            {errors.name && (
-              <p className="text-red-500 text-xs mt-1">
-                {errors.name.message}
-              </p>
+            {errors.fullName && (
+              <p className="text-red-500 text-xs mt-1">{errors.fullName.message}</p>
             )}
           </div>
           {/* Email */}
